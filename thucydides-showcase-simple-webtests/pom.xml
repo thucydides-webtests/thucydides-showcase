@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.5.0-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.5.1-SNAPSHOT</thucydides.version>
         <webdriver.driver>firefox</webdriver.driver>
     </properties>
 
