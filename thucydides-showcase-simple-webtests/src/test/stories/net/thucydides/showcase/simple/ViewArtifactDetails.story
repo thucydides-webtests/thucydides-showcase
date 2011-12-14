@@ -2,7 +2,7 @@ package net.thucydides.showcase.simple
 
 import net.thucydides.showcase.simple.requirements.Application.DisplayArtifacts
 import net.thucydides.showcase.simple.steps.DeveloperSteps
-import static net.thucydides.core.matchers.PropertyMatcher.the
+import static net.thucydides.core.matchers.BeanMatchers.the
 import static org.hamcrest.Matchers.is
 
 using "thucydides"
@@ -20,12 +20,12 @@ scenario "A developer views the details of for an existing Maven artifact", {
 
     }
     and "the user clicks on the first Thucydides artifact", {
-        developer.open_artifact_where(the("ArtifactId", is("thucydides")),
-                                      the("GroupId", is("net.thucydides")));
+        developer.open_artifact_where the("ArtifactId", is("thucydides")),
+                                      the("GroupId", is("net.thucydides"))
     }
     then "the site should display details about the Thucydides artifact", {
-        developer.should_see_artifact_details_where(the("artifactId", is("thucydides")),
-                                                    the("groupId", is("net.thucydides")));
+        developer.should_see_artifact_details_where the("artifactId", is("thucydides")),
+                                                    the("groupId", is("net.thucydides"))
 
     }
 }

@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import static net.thucydides.core.matchers.PropertyMatcher.the;
+import static net.thucydides.core.matchers.BeanMatchers.the;
 import static org.hamcrest.Matchers.is;
 
 @RunWith(ThucydidesRunner.class)

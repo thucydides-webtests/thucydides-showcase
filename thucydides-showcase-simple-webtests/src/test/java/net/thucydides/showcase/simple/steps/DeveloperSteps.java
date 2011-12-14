@@ -1,14 +1,16 @@
 package net.thucydides.showcase.simple.steps;
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.matchers.PropertyMatcher;
+import net.thucydides.core.matchers.BeanFieldMatcher;
+import net.thucydides.core.matchers.BeanMatcher;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 import net.thucydides.showcase.simple.pages.ArtifactDetailsPage;
 import net.thucydides.showcase.simple.pages.SearchPage;
 import net.thucydides.showcase.simple.pages.SearchResultsPage;
 
-import static net.thucydides.core.matchers.PropertyMatcher.shouldMatch;
+import static net.thucydides.core.matchers.BeanMatcherAsserts.shouldMatch;
+
 
 public class DeveloperSteps extends ScenarioSteps {
 
@@ -29,9 +31,16 @@ public class DeveloperSteps extends ScenarioSteps {
     }
 
     @Step
-    public void should_see_artifacts_where(PropertyMatcher... matchers) {
+    public void should_see_artifacts_where(BeanMatcher... matchers) {
         shouldMatch(onSearchResultsPage().getSearchResults(), matchers);
     }
+
+
+    @Step
+    public void should_see_artifact_objects_where(BeanMatcher... matchers) {
+        shouldMatch(onSearchResultsPage().getResults(), matchers);
+    }
+
 
     @Step
     public void should_see_error_message(String expectedMessage) {
@@ -39,12 +48,12 @@ public class DeveloperSteps extends ScenarioSteps {
     }
 
     @Step
-    public void open_artifact_where(PropertyMatcher... matchers) {
+    public void open_artifact_where(BeanMatcher... matchers) {
         onSearchResultsPage().clickOnFirstRowMatching(matchers);
     }
 
     @Step
-    public void should_see_artifact_details_where(PropertyMatcher... matchers) {
+    public void should_see_artifact_details_where(BeanMatcher... matchers) {
         shouldMatch(onArtifactDetailsPage(), matchers);
     }
 
