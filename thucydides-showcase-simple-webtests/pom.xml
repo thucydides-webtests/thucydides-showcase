@@ -15,6 +15,8 @@
         <thucydides.version>0.5.1-SNAPSHOT</thucydides.version>
         <webdriver.driver>firefox</webdriver.driver> 
 		<opera.launcher>/Applications/Opera.app</opera.launcher>
+        <thucydides.batch.count>0</thucydides.batch.count>
+        <thucydides.batch.number>0</thucydides.batch.number>
     </properties>
 
     <dependencies>
@@ -87,6 +89,8 @@
                         <webdriver.driver>${webdriver.driver}</webdriver.driver>  
 						<opera.launcher>${opera.launcher}</opera.launcher>
                         <thucydides.browser.width>1000</thucydides.browser.width>
+                        <thucydides.batch.count>${thucydides.batch.count}</thucydides.batch.count>
+                        <thucydides.batch.number>${thucydides.batch.number}</thucydides.batch.number>
                     </systemPropertyVariables>
                 </configuration>
                 <executions>
@@ -107,24 +111,24 @@
                     <target>1.5</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.easyb</groupId>
-                <artifactId>maven-easyb-plugin</artifactId>
-                <version>1.3</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <storyType>html</storyType>
-                    <storyReport>target/easyb/easyb.html</storyReport>
-                    <easybTestDirectory>src/test/stories</easybTestDirectory>
-                    <jvmArguments>-Xmx512m -Dwebdriver.driver=${webdriver.driver}</jvmArguments>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.easyb</groupId>-->
+                <!--<artifactId>maven-easyb-plugin</artifactId>-->
+                <!--<version>1.3</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<goals>-->
+                            <!--<goal>test</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<configuration>-->
+                    <!--<storyType>html</storyType>-->
+                    <!--<storyReport>target/easyb/easyb.html</storyReport>-->
+                    <!--<easybTestDirectory>src/test/stories</easybTestDirectory>-->
+                    <!--<jvmArguments>-Xmx512m -Dwebdriver.driver=${webdriver.driver}</jvmArguments>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>net.thucydides.maven.plugins</groupId>
                 <artifactId>maven-thucydides-plugin</artifactId>

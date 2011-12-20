@@ -26,7 +26,7 @@ public class SearchResultsPage extends PageObject {
 		super(driver);
 	}
 
-    public List<Map<String, String>> getSearchResults() {
+    public List<Map<Object, String>> getSearchResults() {
         return rowsFrom(resultTable);
     }
     
