@@ -5,6 +5,7 @@ import net.thucydides.core.matchers.BeanFieldMatcher;
 import net.thucydides.core.matchers.BeanMatcher;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.showcase.simple.pages.AdvancedSearchPage;
 import net.thucydides.showcase.simple.pages.ArtifactDetailsPage;
 import net.thucydides.showcase.simple.pages.SearchPage;
 import net.thucydides.showcase.simple.pages.SearchResultsPage;
@@ -57,8 +58,33 @@ public class DeveloperSteps extends ScenarioSteps {
         shouldMatch(onArtifactDetailsPage(), matchers);
     }
 
+    public void opens_the_advanced_search_page() {
+        onSearchPage().open();
+        onSearchPage().clickOnAdvancedSearch();
+    }
+
+    public void searches_by_group(String group) {
+        onAdvancedSearchPage().setGroupId(group);
+        onAdvancedSearchPage().startSearch();
+    }
+
+    public void searches_by_artifact(String artifact) {
+        onAdvancedSearchPage().setArtifactId(artifact);
+        onAdvancedSearchPage().startSearch();
+    }
+
+    public void searches_by_group_and_version(String group, String version) {
+        onAdvancedSearchPage().setGroupId(group);
+        onAdvancedSearchPage().setVersion(version);
+        onAdvancedSearchPage().startSearch();
+    }
+
     private SearchPage onSearchPage() {
         return getPages().get(SearchPage.class);
+    }
+
+    private AdvancedSearchPage onAdvancedSearchPage() {
+        return getPages().get(AdvancedSearchPage.class);
     }
 
     private SearchResultsPage onSearchResultsPage() {

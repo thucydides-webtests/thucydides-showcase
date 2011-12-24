@@ -16,16 +16,23 @@ public class SearchPage extends PageObject {
     @FindBy(id="queryButton")
     private WebElement searchButton;
     
+    @FindBy(linkText = "ADVANCED SEARCH")
+    WebElement advancedSearch;
+    
     public SearchPage(WebDriver driver) {
         super(driver);
     }
 
     public void enter_search_terms(String searchTerms) {
-        search.sendKeys(searchTerms);
+        element(search).type(searchTerms);
     }
 
     public void starts_search() {
-        searchButton.click();
+        element(searchButton).click();
+    }
+
+    public void clickOnAdvancedSearch() {
+        element(advancedSearch).click();
     }
 }
 
