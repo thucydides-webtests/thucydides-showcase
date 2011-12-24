@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.6.0-SNAPSHOT</thucydides.version>
+        <thucydides.version>0.6.0</thucydides.version>
         <webdriver.driver>firefox</webdriver.driver> 
 		<opera.launcher>/Applications/Opera.app</opera.launcher>
         <thucydides.batch.count>0</thucydides.batch.count>
